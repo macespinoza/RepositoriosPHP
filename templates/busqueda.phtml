@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Slim 3</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 30px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Developers SAC</h1>
+		<br>
+        <div>Detalle Empleado</div>
+		<br>
+		
+		<table border="1" cellpadding="3" cellspacing="0" align="center"  >
+		<tr>
+		<td>nombre</td>
+		<td>Correo</td>
+		<td>Telefono</td>
+		<td>Direccion</td>
+		<td>Posicion</td>
+		<td>Salario</td>
+		<td>Skills</td>
+		</tr>
+		
+		<?PHP
+		$url="http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+		$file = dirname($url);
+		echo "<tr>
+			<td>".$individuo['name']."</td>
+			<td>".$individuo['email']."</td>
+			<td>".$individuo['phone']."</td>
+			<td>".$individuo['address']."</td>
+			<td>".$individuo['position']."</td>
+			<td>".$individuo['salary']."</td>
+			<td>";
+			foreach ($individuo['skills'] as $skill) {
+				echo $skill['skill']."<br>";
+			}
+			echo "</td>";
+			echo "</tr></table><br>";
+			echo "<a href='".$file."/getAll'>Regresar</a>";
+		?>
+		
+		
+    </body>
+</html>
